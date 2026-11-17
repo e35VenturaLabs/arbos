@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="theme-color" content="#FCFCFC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Arbos">
+<title>Arbos</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" class="app" data-view="home">
+  <section id="signin" class="signin" hidden>
+    <div class="float-disc d1">A</div><div class="float-disc d2">R</div><div class="float-disc d3">B</div><div class="float-disc d4">O</div><div class="float-disc d5">S</div>
+    <div class="signin-body">
+      <h1>Arbos</h1>
+      <p class="lede">Your team of always-on agents<br>that finish the work.</p>
+      <form id="pair-form" autocomplete="off">
+        <input id="pair-code" class="code-field" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="Pairing code" aria-label="Pairing code">
+        <button type="submit" class="primary-pill">Connect</button>
+      </form>
+      <p class="fine">Get a code on the desktop with <code>pair-code</code>. Your agents run on your own computers.</p>
+      <p id="pair-error" class="error" role="alert"></p>
+    </div>
+  </section>
+
+  <!-- Sidebar (Mac) / Home (iPhone) -->
+  <aside id="home" class="home" hidden>
+    <header class="home-bar">
+      <button id="account" class="account" aria-label="Account and settings"></button>
+      <div class="mac-title"></div>
+      <span class="spacer"></span>
+      
+      <button id="new-chat" class="glass" aria-label="New message" title="New message"></button>
+    </header>
+    <div class="mac-search"><span class="ico-search"></span><input id="mac-search" placeholder="Search" aria-label="Search"></div>
+    <div id="chat-list" class="chat-list" role="list"></div>
+    <footer class="mac-foot">
+      <button id="mac-settings" class="mac-foot-btn"><span id="foot-avatar"></span><span>Settings</span></button>
+      <span class="spacer"></span>
+      <button id="mac-appearance" class="mac-icon" aria-label="Appearance" title="Appearance"></button>
+    </footer>
+    <div class="search-bar"><span class="ico-search"></span><input id="search" placeholder="Search" aria-label="Search" enterkeyhint="search"></div>
+  </aside>
+
+  <!-- Chat -->
+  <main id="chat" class="chat" hidden>
+    <header class="chat-bar">
+      <button id="back" class="glass back" aria-label="Back"></button>
+      <button id="chat-pill" class="title-pill" aria-label="Agent profile"></button>
+      <div id="mac-tabs" class="mac-tabs"><span class="tab on">Main</span></div>
+      <span class="spacer"></span>
+      <button id="chat-more" class="glass more" aria-label="More"></button>
+    </header>
+    <div id="transcript" class="transcript">
+      <div id="messages" class="column"></div>
+    </div>
+    <form id="composer" class="composer">
+      <button type="button" id="plus" class="glass plus" aria-label="Add"></button>
+      <div class="field">
+        <span class="mac-plus" aria-hidden="true"></span>
+        <textarea id="input" rows="1" placeholder="Ask" enterkeyhint="send" aria-label="Message"></textarea>
+        <span class="mic" aria-hidden="true"></span>
+        <button id="send" class="action" type="submit" aria-label="Send"></button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Pages: Settings, profile, Store -->
+  <section id="page" class="page" hidden>
+    <header class="page-bar">
+      <button id="page-back" class="glass back" aria-label="Back"></button>
+      <div id="page-title" class="page-title"></div>
+      <span class="glass ghost-disc" aria-hidden="true"></span>
+    </header>
+    <div id="page-body" class="page-body"></div>
+  </section>
+
+  <div id="empty" class="empty" hidden><p>No chat selected</p></div>
+</div>
+<script src="md.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
